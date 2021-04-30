@@ -4,13 +4,14 @@
  * @Author: wonder.d.wang
  * @Date: 2021-04-23 09:39:14
  * @LastEditors: wonder.d.wang
- * @LastEditTime: 2021-04-25 13:55:18
+ * @LastEditTime: 2021-04-29 10:02:48
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Route from './constants/router'
+import './assets/style/common.css'
 
 const render = (Component: any) => {
   ReactDOM.render(

@@ -4,15 +4,16 @@
  * @Author: wonder.d.wang
  * @Date: 2021-04-26 16:03:14
  * @LastEditors: wonder.d.wang
- * @LastEditTime: 2021-04-30 10:58:45
+ * @LastEditTime: 2021-07-23 16:08:27
  */
 import {Component} from "react";
 import {BottomNavigation, BottomNavigationAction} from '@material-ui/core'
-import {Home, Store, Markunread, Face, AddAPhoto} from '@material-ui/icons'
-import '../assets/style/layout.less'
+import {Home, Store, Markunread, Face, AddAPhoto, Search} from '@material-ui/icons'
+import '../assets/style/layout.scss'
 import { withRouter } from 'react-router-dom';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 // import routes from '../constants/routes'
+import {Animated} from 'react-animated-css'
 // 设置主题颜色
 const theme = createMuiTheme({
     overrides: {
@@ -119,16 +120,24 @@ class Layout extends Component<any, any> {
         return (
             <ThemeProvider theme={theme}>
                 <div className="red-app-demo-container">
-                    {this.state.isFirstLevel ? 
+                    {this.state.isFirstLevel ?
                         <div className="red-app-demo-header">
                             <AddAPhoto className="header-left-icon" color="primary"></AddAPhoto>
-                            isFirstLevel
+                            <span className="header-middle-text">标题</span>
+                            <Search className="header-right-icon"></Search>
                         </div>
                         :
                         <div>{this.props.header}</div>
                     }
                     <div className="react-app-demo-content">
-                        {this.props.children}
+                        <Animated 
+                            animationIn="fadeIn" 
+                            animationOut="fadeOut" 
+                            animationInDuration={1000} 
+                            animationOutDuration={1000} 
+                            isVisible={true}>
+                            {this.props.children}
+                        </Animated>
                     </div>
                     <BottomNavigation className="react-app-demo-bottom-navigation" showLabels value={this.state.value} onChange={this.handleChange}>
                         <BottomNavigationAction label="首页" value="recents" icon={<Home />} />

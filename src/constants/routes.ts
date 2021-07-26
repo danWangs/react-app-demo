@@ -9,6 +9,7 @@ import Home from "../pages/Home";
 import Store from "../pages/Store";
 import Msg from "../pages/Msg";
 import Mine from "../pages/Mine";
+import Detail from "../pages/Home/detail";
 const routes = [
   {
     path: "/",
@@ -36,6 +37,13 @@ const routes = [
     component: Mine,
     meta: {
       title: "我的",
+    },
+  },
+  {
+    path: "/Detail",
+    component: Detail,
+    meta: {
+      title: "详情",
     },
   },
 ];
